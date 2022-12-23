@@ -1,38 +1,34 @@
-import React, { useState } from "react";
+import React, { useState } from "react"   
 
-import './App.css';
+import './App.css'   
 const emojiDictionary = {
   "😊": "Smiling",
   "😳": "disbelief",
   "😔": "sad",
   "🥡": "takeout box",
   "❤️": "love",
-  "😑":
-    "annoyance" /** add some more to show how the app now expands when there's new data */
-};
+  "😑": "annoyance" 
+}   
 
-/**
- * Bonus feature
- * converting an object to array of keys
- */
-const emojis = Object.keys(emojiDictionary);
+
+const emojis = Object.keys(emojiDictionary)   
 function App() {
-  const [emoji, setEmoji] = useState(""); /** concept 2 is useState */
-  const [meaning, setMeaning] = useState("translation will appear here..");
+  const [emoji, setEmoji] = useState("")    
+  const [meaning, setMeaning] = useState("translation will appear here..")   
 
   function changeHandler(event) {
-    const inputEmoji = event.target.value;
-    setEmoji(inputEmoji);
+    const inputEmoji = event.target.value   
+    setEmoji(inputEmoji)   
 
     if (inputEmoji in emojiDictionary) {
-      setMeaning(emojiDictionary[inputEmoji]);
+      setMeaning(emojiDictionary[inputEmoji])   
     } else {
-      setMeaning("failure to recognise this emoji");
+      setMeaning("failure to recognise this emoji")   
     }
   }
 
   function emojiClickHandler(inputEmoji) {
-    setMeaning(emojiDictionary[inputEmoji]);
+    setMeaning(emojiDictionary[inputEmoji])   
   }
   return (
 <div className="App">
@@ -46,16 +42,12 @@ function App() {
           minWidth: "80%"
         }}
       />
-      <h2> {emoji} </h2> {/** Concept 1: JSX */}
-      <h3> {meaning} </h3> {/** how much part is re-rendered. */}
+      <h2> {emoji} </h2> 
+      <h3> {meaning} </h3> 
       {
-        /** Bonus feature; if time permmits */
-        /**
-         * concepts to cover: mapping a list
-         * click handler on list item
-         */
+
         emojis.map((emoji) => (
-          <span
+          <span key={emoji}
             onClick={() => emojiClickHandler(emoji)}
             style={{ fontSize: "2rem", padding: "0.5rem", cursor: "pointer" }}
           >
@@ -65,7 +57,7 @@ function App() {
         ))
       }
     </div>
-  );
+  )   
 }
 
-export default App;
+export default App   
