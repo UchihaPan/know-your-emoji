@@ -1,46 +1,46 @@
 import React, { useState } from "react"   
-
 import './App.css'   
-const emojiDictionary = {
-  "😊": "Smiling",
-  "😳": "disbelief",
+const dictionary = {
+  "😇": "Smiling Face With Halo ",
+  "😂": "Laugh",
   "😔": "sad",
-  "🥡": "takeout box",
-  "❤️": "love",
-  "😑": "annoyance" 
+  "😎": "cool",
+  "😵": "confuse",
+  "🥳": "celebration",
+  "😁":"Happy"
+
 }   
 
 
-const emojis = Object.keys(emojiDictionary)   
+const emojis = Object.keys(dictionary)   
 function App() {
-  const [emoji, setEmoji] = useState("")    
-  const [meaning, setMeaning] = useState("translation will appear here..")   
+  const [emoji, setemoji] = useState("")    
+  const [meaning, setmeaning] = useState("translation will appear here.")   
 
-  function changeHandler(event) {
-    const inputEmoji = event.target.value   
-    setEmoji(inputEmoji)   
+  function changehandler(e) {
+    const inputemoji = e.target.value   
+    setemoji(inputemoji)   
 
-    if (inputEmoji in emojiDictionary) {
-      setMeaning(emojiDictionary[inputEmoji])   
+    if (inputemoji in dictionary) {
+      setmeaning(dictionary[inputemoji])   
     } else {
-      setMeaning("failure to recognise this emoji")   
+      setmeaning("fail to recognise this emoji")   
     }
   }
 
-  function emojiClickHandler(inputEmoji) {
-    setMeaning(emojiDictionary[inputEmoji])   
+  function emojiclickhandler(inputemoji) {
+    setmeaning(dictionary[inputemoji])   
   }
   return (
 <div className="App">
-      <h1>inside out</h1>
-      <input
-        onChange={changeHandler}
+      <h1>Emoticon Interpreter</h1>
+      <input className="inputt"
+        onChange={changehandler}
         value={emoji}
         placeholder={"Search your emoji"}
-        style={{
-          padding: "1em",
-          minWidth: "80%"
-        }}
+        style={{ padding: "1rem",
+  minWidth: "90%"}}
+  
       />
       <h2> {emoji} </h2> 
       <h3> {meaning} </h3> 
@@ -48,11 +48,11 @@ function App() {
 
         emojis.map((emoji) => (
           <span key={emoji}
-            onClick={() => emojiClickHandler(emoji)}
-            style={{ fontSize: "2rem", padding: "0.5rem", cursor: "pointer" }}
+            onClick={() => emojiclickhandler(emoji)}
+            style={{ fontSize: "2rem", padding: "1rem", cursor: "pointer" }}
           >
-            {" "}
-            {emoji}{" "}
+            
+            {emoji}
           </span>
         ))
       }
