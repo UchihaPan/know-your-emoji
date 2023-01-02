@@ -7,7 +7,11 @@ const dictionary = {
   "😎": "cool",
   "😵": "confuse",
   "🥳": "celebration",
-  "😁":"Happy"
+  "😁":"Happy",
+    "😥":"Sad but Relieved",
+    "😪":"Sleepy",
+    "😓":"Downcast Face with Sweat"
+
 
 }   
 
